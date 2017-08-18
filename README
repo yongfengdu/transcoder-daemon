@@ -1,6 +1,7 @@
 Verified on Ubuntu 16.04
 
 ./kernel/install-kernel.sh to install linux kernel with transcode support
+reboot to new kernel
 ./k8s/runk8s.sh to setup k8s env and run transcode container
 
 copy your files to /opt/media/$type directory to transcode 
