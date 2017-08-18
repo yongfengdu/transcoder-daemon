@@ -1,13 +1,6 @@
-Only tested on Ubuntu 16.04
+Verified on Ubuntu 16.04
 
-build.sh is used to build a kernel package. We already included
-the package, so this step is not necessary.
+./kernel/install-kernel.sh to install linux kernel with transcode support
+./k8s/runk8s.sh to setup k8s env and run transcode container
 
-install-kernel.sh is used to
-1. add user kontron and add the new user to sudo/video group
-2. install the kernel package
-3. modify grup default entry to this new kernel
-
-Just run 
-./install-kernel.sh [$USERNAME]
-to install
+copy your files to /opt/media/$type directory to transcode 
