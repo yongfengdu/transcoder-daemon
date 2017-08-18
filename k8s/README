@@ -1,0 +1,5 @@
+./runk8s.sh to start the transcode container
+cp your files to /opt/media/$type directory to transcode 
+
+Note:
+./install-k8s.sh to install k8s

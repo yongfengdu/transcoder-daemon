@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: transcoder-daemon
+spec:
+  containers:
+  - name: transcoder-daemon
+    securityContext:
+      privileged: true
+    image: transcoder-daemon
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: media-transcode-dir
+      mountPath: /mnt/shared
+    - name: decoder-device
+      mountPath: /dev/dri/renderD128
+  volumes:
+  - name: media-transcode-dir
+    hostPath:
+      path: /opt/media
+  - name: decoder-device
+    hostPath:
+      path: /dev/dri/renderD128
