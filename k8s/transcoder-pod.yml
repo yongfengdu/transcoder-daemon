@@ -7,7 +7,7 @@ spec:
   - name: transcoder-daemon
     securityContext:
       privileged: true
-    image: transcoder-daemon
+    image: dolpher/transcoder-daemon
     imagePullPolicy: IfNotPresent
     volumeMounts:
     - name: media-transcode-dir
