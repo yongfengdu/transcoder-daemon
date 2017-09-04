@@ -50,6 +50,6 @@ This script will create several destination dir, like "h264", "mpeg2",
 under /mnt/shared dir. 
 
 For example, to transcode a media file to mpeg2 format, cp the file
-to /mnt/shard/mpeg2 directory. The transcoder daemon will monitor the
+to /mnt/shared/mpeg2 directory. The transcoder daemon will monitor the
 directory for new file and then automatically trigger the transcoding
 process and save the transcoded mpeg2 file in the same directory.
