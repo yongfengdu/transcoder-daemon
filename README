@@ -24,20 +24,32 @@ drm                   356352  7 ast,ttm,i915,drm_kms_helper
 i2c_algo_bit           16384  3 ast,igb,i915
 video                  40960  1 i915
 
-
 Step 2: Build docker container with Intel Media SDK
+
+2.1) $cd transcoder-daemon/docker
+
+2.2) Build the docker image with the Dockerfile
+$sudo docker build -t transcoder-daemon:latest .
 
 Step 3: Install Kubernetes for the transcoder application
 
-Step 4: Run the transcoding task
+3.1) $cd transcoder-daemon/k8s
 
+3.2) Install k8s
+$./install-k8s.sh
 
+3.3) Run k8s 
+$./runk8s.sh
 
-Verified on Ubuntu 16.04
+Step 4: Execute transcoding task
 
-cd kernel;./install-kernel.sh # To install linux kernel with transcode support
-reboot # to use new kernel
-cd k8s;./runk8s.sh # To setup k8s env and run transcode container
+4.1) Copy the media file to /opt/media/$type directory to transcode
+$type can be h265, h264, mpeg2, mvc, jpeg, raw.
 
-copy your files to /opt/media/$type directory to transcode 
+This script will create several destination dir, like "h264", "mpeg2", 
+under /mnt/shared dir. 
 
+For example, to transcode a media file to mpeg2 format, cp the file
+to /mnt/shard/mpeg2 directory. The transcoder daemon will monitor the
+directory for new file and then automatically trigger the transcoding
+process and save the transcoded mpeg2 file in the same directory.
