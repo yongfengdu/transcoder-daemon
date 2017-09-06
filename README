@@ -25,6 +25,7 @@ i2c_algo_bit           16384  3 ast,igb,i915
 video                  40960  1 i915
 
 Step 2: Build docker container with Intel Media SDK
+p/s: Step 2 can be skipped because the k8s installation in the later step will pull an exising pre-built image from Docker Hub.
 
 2.1) $cd transcoder-daemon/docker
 
@@ -35,11 +36,9 @@ Step 3: Install Kubernetes for the transcoder application
 
 3.1) $cd transcoder-daemon/k8s
 
-3.2) Install k8s
-$./install-k8s.sh
-
-3.3) Run k8s 
+3.2) Run k8s 
 $./runk8s.sh
+p/s: This step includes ./install-k8s.sh implicitly.
 
 Step 4: Execute transcoding task
 
